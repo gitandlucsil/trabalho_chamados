@@ -1,0 +1,31 @@
+<div class="row" *ngFor="let ch of chamados">
+        <div class="row">
+            <div class="col s12">
+                <h5>{{ch.data | date:'dd/MM/yyyy'}} - Departamento: {{ch.departamento.nome}}</h5>                     
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                Solicitante: {{ch.solicitante}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                Descrição do chamado: {{ch.descricao}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2" *ngIf="ch.status == 1">                    
+                Status: Não analisado
+            </div>
+            <div class="col s2" *ngIf="ch.status == 2">                    
+                Status: Em análise
+            </div>
+            <div class="col s2" *ngIf="ch.status == 3">                    
+                Status: Em andamento
+            </div>
+            <div class="col s2" *ngIf="ch.status == 4">                    
+                Status: Concluído
+            </div>
+        </div>  
+    </div>

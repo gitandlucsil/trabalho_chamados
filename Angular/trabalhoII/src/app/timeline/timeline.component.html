@@ -1,0 +1,51 @@
+<div class="row" *ngFor="let ch of chamados">
+        <div class="row">
+            <div class="col s12">
+                <h5>{{ch.data | date:'dd/MM/yyyy'}} - Departamento: {{ch.departamento.nome}}</h5>                     
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                Solicitante: {{ch.solicitante}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                Descrição do chamado: {{ch.descricao}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2" *ngIf="ch.status == 1">                    
+                Status: Não analisado
+            </div>
+            <div class="col s2" *ngIf="ch.status == 2">                    
+                Status: Em análise
+            </div>
+            <div class="col s2" *ngIf="ch.status == 3">                    
+                Status: Em andamento
+            </div>
+            <div class="col s2" *ngIf="ch.status == 4">                    
+                Status: Concluído
+            </div>
+        </div>
+        <div class="row">
+            <div style="text-align: center" class="col">
+                <button class="btn blue ligthen-2" 
+                    *ngIf="ch.status == 1" (click)="analisar(ch)">
+                    Analisar
+                </button>&nbsp;
+                <button class="btn blue ligthen-2" 
+                    *ngIf="ch.status == 2" (click)="aceitar(ch)">
+                    Aceitar
+                </button>&nbsp;
+                <button class="btn blue ligthen-2" 
+                    *ngIf="ch.status == 2" (click)="rejeitar(ch._id)">
+                    Rejeitar
+                </button>&nbsp;
+                <button class="btn blue ligthen-2" 
+                    *ngIf="ch.status == 3" (click)="concluir(ch)">
+                    Concluir
+                </button>&nbsp;
+            </div>
+        </div>   
+    </div>

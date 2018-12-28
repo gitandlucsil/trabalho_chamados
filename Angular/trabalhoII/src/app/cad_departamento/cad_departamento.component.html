@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col s3">
+            <div class="col s12 col_profile">               
+                <p>
+                    {{departamento.nome}}
+                </p>
+            </div>
+            <form class="col s12">
+                <div class="input-field">
+                    <textarea name="departamento" id="departamento" class="materialize-textarea"
+                        [(ngModel)]="departamento.nome"></textarea>
+                    <label for="departamento">Nome do Departamento</label>
+                </div>
+                <div class="input-field">
+                    <button class="btn waves-effect waves-light col s12 grey darken-3"
+                        (click)="salvar()">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <ul class="col s7 offset-s1 list_departamntos">
+            <li class="item_departamento" *ngFor="let p of departamentos">
+                <p>                   
+                    {{p.nome}}
+                </p>               
+            </li>
+        </ul>
+    </div>
+</div>
